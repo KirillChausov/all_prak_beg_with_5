@@ -1,5 +1,7 @@
 package ru.mirea.prak_6_1;
 
+import java.util.ArrayList;
+
 abstract class Furniture{
     private String material;
     private String color;
@@ -41,6 +43,7 @@ abstract class Furniture{
 class Chair extends Furniture{ //стул
     private int backHeight; //высота спинки
     private int seatHeight; //высота сидения
+    private ArrayList<Chair> chairs;
 
     Chair(String material, String color, String dimensions){
         super(material, color, dimensions);
@@ -70,6 +73,7 @@ class Chair extends Furniture{ //стул
 }
 
 class Wardrobe extends Furniture { //шкаф
+    private ArrayList<Wardrobe> wardrobes;
     private double height;
     private double width;
 
@@ -101,6 +105,7 @@ class Wardrobe extends Furniture { //шкаф
 }
 
 class Sofa extends Furniture{ //диван
+    private ArrayList<Sofa> sofas;
     private String form;
     private int numberOfSeats;
 
