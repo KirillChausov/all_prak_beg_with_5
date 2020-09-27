@@ -7,7 +7,8 @@ public class Loader {
     public int amountOfMoney;
 
     public static void showCommand(){
-        System.out.println("Показать каталог - 1" + "\n" +  "Купить - 2" + "\n" + "Уйти - 3");
+        System.out.print("Показать каталог - 1" + "\n" +  "Купить - 2" + "\n" +
+                "Показать список команд - 3" + "\n" + "Уйти - 4" + "\n" + "Ваша команда: ");
     }
 
     public static void main(String[] args) {
@@ -42,7 +43,10 @@ public class Loader {
                 FurnitureShop.buy(catalog, numbProduct, amountOfMoney);
                 Loader.showCommand();
             }
-            else if(command == 3){
+            else if(command == 3){ //вывод списка команд
+                Loader.showCommand();
+            }
+            else if(command == 4){
                 System.out.println("Выход");
                 break;
             }
