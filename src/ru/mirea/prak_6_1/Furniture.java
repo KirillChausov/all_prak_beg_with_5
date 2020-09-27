@@ -2,19 +2,39 @@ package ru.mirea.prak_6_1;
 
 abstract class Furniture{
     private String material;
+    private int price;
+    private String name;
     private String color;
     private String dimensions; //габариты
 
-    Furniture(String material, String color, String dimensions){
+    Furniture(String material, String color, String dimensions, int price, String name){
         this.material = material;
         this.color = color;
         this.dimensions = dimensions; //габариты
+        this.price = price;
+        this.name = name;
     }
 
     public abstract String displayInfo();
 
     public String getColor(){
         return color;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public String getMaterial(){
@@ -42,8 +62,8 @@ class Chair extends Furniture{ //стул
     private int backHeight; //высота спинки
     private int seatHeight; //высота сидения
 
-    Chair(String material, String color, String dimensions){
-        super(material, color, dimensions);
+    Chair(String material, String color, String dimensions, int price, String name){
+        super(material, color, dimensions, price, name);
     }
 
     public void setBackHeight(int backHeight) {
@@ -73,8 +93,8 @@ class Wardrobe extends Furniture { //шкаф
     private double height;
     private double width;
 
-    Wardrobe(String material, String color, String dimensions){
-        super(material, color, dimensions);
+    Wardrobe(String material, String color, String dimensions, int price, String name){
+        super(material, color, dimensions, price, name);
     }
 
     @Override
@@ -104,8 +124,8 @@ class Sofa extends Furniture{ //диван
     private String form;
     private int numberOfSeats;
 
-    Sofa(String material, String color, String dimensions) {
-        super(material, color, dimensions);
+    Sofa(String material, String color, String dimensions, int price, String name) {
+        super(material, color, dimensions, price, name);
     }
 
     @Override

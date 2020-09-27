@@ -1,18 +1,30 @@
 package ru.mirea.prak_6_1;
+import java.util.ArrayList;
 
 public class FurnitureShop {
     private String storeName;
     private String buyersName;
-    private double amountOfMoney;
 
-    FurnitureShop(String storeName, String byersName, double amountOfMoney){
+    FurnitureShop(String storeName, String byersName){
         this.storeName = storeName;
         this.buyersName = byersName;
-        this.amountOfMoney = amountOfMoney;
     }
 
-    public void setAmountOfMoney(double amountOfMoney) {
-        this.amountOfMoney = amountOfMoney;
+    static void printCatalog(ArrayList<Furniture> catalog){
+        for(int i = 0; i < catalog.size(); i++){
+            System.out.println(i+1 + ") " + catalog.get(i).getName() + " " + catalog.get(i).getPrice());
+        }
+    }
+
+    static void buy(ArrayList<Furniture> catalog, int numbProduct, int amountOfMoney){
+        if(amountOfMoney >= catalog.get(numbProduct).getPrice()){
+            amountOfMoney -= catalog.get(numbProduct).getPrice();
+            catalog.remove(numbProduct);
+            System.out.println("Вы успешно купили выбранный товар!!!" + " Остаток средств: " + amountOfMoney);
+        }
+        else {
+            System.out.println("Недостаточно средст ");
+        }
     }
 
     public void setBuyersName(String buyersName) {
@@ -21,10 +33,6 @@ public class FurnitureShop {
 
     public void setStoreName(String storeName) {
         this.storeName = storeName;
-    }
-
-    public double getAmountOfMoney() {
-        return amountOfMoney;
     }
 
     public String getBuyersName() {
@@ -40,7 +48,6 @@ public class FurnitureShop {
         return "FurnitureShop{" +
                 "storeName='" + storeName + '\'' +
                 ", buyersName='" + buyersName + '\'' +
-                ", amountOfMoney=" + amountOfMoney +
                 '}';
     }
 }
