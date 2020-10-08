@@ -1,4 +1,4 @@
-package ru.mirea.prak_5_1;
+package ru.mirea.prak_3_1;
 
 abstract class Dash {
     private String material;

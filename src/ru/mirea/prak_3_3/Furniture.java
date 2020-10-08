@@ -1,4 +1,4 @@
-package ru.mirea.prak_6_1;
+package ru.mirea.prak_3_3;
 
 abstract class Furniture{
     private String material;

@@ -1,4 +1,4 @@
-package ru.mirea.prak_5_1;
+package ru.mirea.prak_3_1;
 
 public class Loader {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ru.mirea.prak_7;
+package ru.mirea.prak_4;
 import java.util.List;
 
 abstract class Employee implements EmployeePosition{
