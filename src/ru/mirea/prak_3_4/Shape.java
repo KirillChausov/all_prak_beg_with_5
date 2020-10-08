@@ -156,11 +156,13 @@ class Square extends Rectangle{
     @Override
     public void setWidth(double side) {
         super.setWidth(width);
+        length = this.getWidth();
     }
 
     @Override
     public void setLength(double side) {
         super.setLength(length);
+        width = this.getLength();
     }
 
     @Override
