@@ -7,11 +7,14 @@ public class Loader {
     public int amountOfMoney;
 
     public static void showCommand(){
-        System.out.print("Показать каталог - 1" + "\n" +  "Купить - 2" + "\n" +
-                "Показать список команд - 3" + "\n" + "Уйти - 4" + "\n" + "Ваша команда: ");
+        System.out.print("Показать каталог - 1" + "\n" +  "Добавить в корзину - 2" + "\n" + "Убрать из корзины - 3" + "\n" +
+                "Показать корзину - 4" + "\n" + "Купить товары из корзины - 5" + "\n" + "Показать список команд - 6" + "\n" + "Уйти - 7"
+                + "\n" + "Ваша команда: ");
     }
 
     public static void main(String[] args) {
+        ArrayList<Furniture> basket = new ArrayList<Furniture>();
+
         Chair chair_1 = new Chair("Skin", "Black", "Big", 10000, "Victoria Ghost_1");
 
         Sofa sofa_1 = new Sofa("Skin", "Red", "Average", 40000, "Fisher_1");
@@ -37,16 +40,27 @@ public class Loader {
             if(command == 1){ //вывод каталога
                 FurnitureShop.printCatalog(catalog);
             }
-            else if(command == 2){
-                System.out.print("Введите номер товара который хотите купить: ");
+            else if(command == 2){ //добавить в корзину
+                System.out.print("Введите номер товара который хотите добавить в корзину: ");
                 int numbProduct = in.nextInt()-1;
-                FurnitureShop.buy(catalog, numbProduct, amountOfMoney);
-                Loader.showCommand();
+                FurnitureShop.getBas(catalog, basket, numbProduct);
             }
-            else if(command == 3){ //вывод списка команд
-                Loader.showCommand();
+            else if(command == 3){ //убрать из корзины
+                System.out.println("Введите номер товара который хотите убрать из корзины: ");
+                int numbProduct = in.nextInt()-1;
+                FurnitureShop.delBas(basket, numbProduct);
             }
             else if(command == 4){
+                FurnitureShop.showBasket(basket);
+            }
+            else if(command == 5){ //покупка
+                System.out.println("Стоимость всех товаров из Вашей корзины составляет: " + FurnitureShop.getSumBasket());
+                FurnitureShop.buy(amountOfMoney, basket);
+            }
+            else if(command == 6){ //вывод списка команд
+                Loader.showCommand();
+            }
+            else if(command == 7){ //выход
                 System.out.println("Выход");
                 break;
             }
