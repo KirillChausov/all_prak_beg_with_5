@@ -1,16 +1,18 @@
 package ru.mirea.prak_4;
 import java.util.List;
+import java.util.Random;
 
-abstract class Employee implements EmployeePosition{
-    private String surname;
+class Employee {
     private String name;
-    private String salary;
-    private String position;
-    public List<Employee> employees;
+    private String surname;
+    private double baseSalary;
+    private EmployeePosition position;
 
-    Employee(String surname, String name){
-        this.surname = surname;
+    Employee(String name, String surname, int baseSalary, EmployeePosition position){
         this.name = name;
+        this.surname = surname;
+        this.baseSalary = baseSalary;
+        this.position = position;
     }
 
     public String getSurname(){
@@ -29,27 +31,30 @@ abstract class Employee implements EmployeePosition{
         this.name = name;
     }
 
-    public String getPosition() {
+    public EmployeePosition getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(EmployeePosition position) {
         this.position = position;
     }
 
-    public String getSalary() {
-        return salary;
+    public double getBaseSalary() {
+        return baseSalary;
     }
 
-    public void setSalary(String salary) {
-        this.salary = salary;
+    public void setBaseSalary(double baseSalary) {
+        this.baseSalary = baseSalary;
     }
 }
 
-class Manager extends Employee{
-    Manager(String surname, String name){
-        super(surname, name);
+class Manager implements EmployeePosition{
+    private Random random = new Random();
+    private int money = 0;
 
+    public int randomMoney(){
+        this.money = random.nextInt(140000 - 115000) + 115000;
+        return money;
     }
 
     @Override
@@ -57,14 +62,16 @@ class Manager extends Employee{
         return "Manager";
     }
 
-    public double calcSalary(double baseSalary){//з.п.
-        return 1;
+    @Override
+    public double calcSalary(double baseSalary){
+        return (baseSalary + money * 0.05);
     }
 }
 
-class TopManager extends Employee{
-    TopManager(String surname, String name){
-        super(surname, name);
+class TopManager implements EmployeePosition{
+    Company company;
+    public TopManager(Company company){
+        this.company = company;
     }
 
     @Override
@@ -72,22 +79,25 @@ class TopManager extends Employee{
         return "Top Manager";
     }
 
+    @Override
     public double calcSalary(double baseSalary){
-        return 1;
+        if(company.getIncome() >= 10000000){
+            return (baseSalary + baseSalary*1.5);
+        }
+        else{
+            return baseSalary;
+        }
     }
 }
 
-class Operator extends Employee{
-    Operator(String surname, String name){
-        super(surname, name);
-    }
-
+class Operator implements EmployeePosition{
     @Override
     public String getJobTitle() {
         return "Operator";
     }
 
+    @Override
     public double calcSalary(double baseSalary){
-        return 1;
+        return baseSalary;
     }
 }
