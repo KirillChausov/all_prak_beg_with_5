@@ -77,10 +77,17 @@ public class CalculatorPanel {
                 try {
                     n_1 = Double.parseDouble(textField_1.getText());
                     n_2 = Double.parseDouble(textField_2.getText());
+                    if(n_2 == 0){
+                        throw new Exception("Делить на ноль нельзя!");
+                    }
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(calculator, "Некорректный ввод!");
+                } catch (Exception exception) {
+                    exception.printStackTrace();
                 }
-                result.setText(String.valueOf(n_1 + " / " + n_2 +" = " + ((double)n_1 / n_2)));
+                if(n_2 != 0) {
+                    result.setText(String.valueOf(n_1 + " / " + n_2 + " = " + ((double) n_1 / n_2)));
+                }
             }
         });
 
@@ -107,10 +114,17 @@ public class CalculatorPanel {
                 try {
                     n_1 = Integer.parseInt(textField_1.getText());
                     n_2 = Integer.parseInt(textField_2.getText());
+                    if(n_2 == 0){
+                        throw new Exception("Целочисленное деление на ноль!");
+                    }
                 } catch (NumberFormatException e1) {
                     JOptionPane.showMessageDialog(calculator, "Некорректный ввод!");
+                } catch (Exception exception) {
+                    exception.printStackTrace();
                 }
-                result.setText(String.valueOf(n_1 + " % " + n_2 +" = " + ((int)n_1 % n_2)));
+                if(n_2 != 0) {
+                    result.setText(String.valueOf(n_1 + " % " + n_2 + " = " + ((int) n_1 % n_2)));
+                }
             }
         });
 
