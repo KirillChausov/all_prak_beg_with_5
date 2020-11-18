@@ -1,4 +1,4 @@
-package ru.mirea.test;
+package ru.mirea.prak_12;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;

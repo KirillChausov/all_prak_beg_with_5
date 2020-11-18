@@ -1,4 +1,4 @@
-package ru.mirea.test;
+package ru.mirea.prak_12;
 
 public class Player extends AGamer{
     MainGameField gameField;
