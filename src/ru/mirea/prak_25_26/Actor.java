@@ -47,6 +47,7 @@ public class Actor {
         return "Actor{" +
                 "index=" + index +
                 ", year=" + year +
+                ", age=" + age +
                 ", name='" + name + '\'' +
                 ", movie='" + movie + '\'' +
                 '}' + "\n";

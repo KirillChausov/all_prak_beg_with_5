@@ -17,8 +17,8 @@ public class Server {
 
     public Server() throws IOException {
         Date date = new Date();
-        File myFile = new File("D://history.txt");
-        FileWriter fileWriter = new FileWriter("D://history.txt", true);
+        File myFile = new File("src/ru/mirea/prak_21_22/history.txt");
+        FileWriter fileWriter = new FileWriter("src/ru/mirea/prak_21_22/history.txt", true);
         try {
             fileWriter.write("Сервер запущен. Дата и время: " + date.toString() + "\n");
         } catch (IOException e) {
@@ -72,7 +72,7 @@ public class Server {
             SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
             System.out.println(format.format(date) + " | " + msg);
             FileWriter fileWriter = new FileWriter("D://history.txt", true);
-            fileWriter = new FileWriter("D://history.txt", true);
+            fileWriter = new FileWriter("src/ru/mirea/prak_21_22/history.txt", true);
             try {
                 fileWriter.write(format.format(date) + " | " + msg + "\n");
             } catch (IOException e) {
@@ -81,7 +81,6 @@ public class Server {
                 fileWriter.close();
             }
         }
-
     // удаляем клиента из коллекции при выходе из чата
     public void removeClient(ClientHandler client) {
         clients.remove(client);

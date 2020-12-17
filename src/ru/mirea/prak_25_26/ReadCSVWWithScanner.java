@@ -16,6 +16,7 @@ public class ReadCSVWWithScanner {
         Scanner scanner = null;
         int index = 0;
         int flag = 1;
+        int maxAge = 1;
         List<Actor> actList = new ArrayList<>();
 
         while ((line = reader.readLine()) != null) {
@@ -35,6 +36,9 @@ public class ReadCSVWWithScanner {
                         actor.setYear(Integer.parseInt(data));
                     } else if (index == 2) {
                         actor.setAge(Integer.parseInt(data));
+                        if(maxAge < actor.getAge()){
+                            maxAge = actor.getAge();
+                        }
                     } else if (index == 3) {
                         actor.setName(data);
                     } else if (index == 4) {
@@ -50,6 +54,22 @@ public class ReadCSVWWithScanner {
             }
         }
         reader.close();
-        System.out.println(actList);
+
+        for(int i = maxAge; i != 0; i--){
+            int counterOsc = 0;
+            String actors = "";
+            for(Actor item : actList){
+                if(i == item.getAge()){
+                    counterOsc++;
+                    if (counterOsc != 1){
+                        actors += ", ";
+                    }
+                    actors += item.getName();
+                }
+            }
+            if(counterOsc != 0) {
+                System.out.println(i + " - " + counterOsc + " | " + actors + ".");
+            }
+        }
     }
 }
