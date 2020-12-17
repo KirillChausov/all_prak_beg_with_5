@@ -28,7 +28,7 @@ public class Something {
                     BufferedReader reader = new BufferedReader(new FileReader(file.getAbsolutePath()));
                     FileWriter writer = new FileWriter("src/ru/mirea/prak_19_20/result.md", true)
             ) {
-                writer.write("####" + file.getName() + "\n");
+                writer.write("##" + file.getName() + "\n");
                 writer.write("```java\n");
                 String line = reader.readLine();
                 while (line != null) {
