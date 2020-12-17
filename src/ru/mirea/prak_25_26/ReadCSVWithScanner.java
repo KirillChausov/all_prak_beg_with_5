@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class ReadCSVWWithScanner {
+public class ReadCSVWithScanner {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("oscar_age.csv"));
         String line = null;
